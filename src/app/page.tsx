@@ -1,101 +1,81 @@
-import Image from "next/image";
+import React from 'react'
+import Image from 'next/image';
+import Navbar from '@/components/Navbar';
+import Balancer from 'react-wrap-balancer'
+import databiz from "@/Assests/images/client-databiz.svg";
+import audiophile from "@/Assests/images/client-audiophile.svg";
+import meet from "@/Assests/images/client-meet.svg";
+import maker from "@/Assests/images/client-maker.svg";
 
-export default function Home() {
+import hremoImagedesktop from "@/Assests/images/image-hero-desktop.png";
+import hremoImageMobile from "@/Assests/images/image-hero-mobile.png";
+
+function page() {
+  const bannerImages=[databiz,audiophile,meet,maker];
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+   <div className='min-h-screen w-full bg-gray-100'>
+    
+<Navbar/>
+{/*hero section */}
+<section className="mx-auto flex max-w-6xl flex-col-reverse gap-2
+ px-4 pb-12 transition-all md:flex-row md:gap-4">
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
+  <div className="flex flex-col items-center gap-6 pt-8 text-center
+  md:w-1/2 md:items-start md:gap-10 md:pt-32 md:text-left">
+    <Balancer>
+    <h1 className="text-4xl font-bold
+    md:text-6xl">
+      Make Remote Work
+     </h1>
+    </Balancer>
+    <Balancer>
+    <p className=" text-neutral-400 md:max-w-[400px]">
+              Get your team in sync, no matter your location. Streamline
+              processes, create team rituals, and watch productivity soar.
+            </p>
+          </Balancer>
+          <button className="border-balck  w-fit rounded-xl border-2 bg-black px-4 py-2  text-white transition-all hover:border-black hover:bg-black hover:bg-transparent  hover:text-black/90">
+            Learn more
+          </button>
+          <div className="flex gap-2 md:gap-6">
+            {bannerImages.map((img,i)=>(
+              <Image
+                className='h-5 w-auto'
+                key={i}
+                src={img}
+                alt="client-image"
+                />
+          
+            )
+            )}
+          </div>
+          {/* right div */}
+
+     
+   
+
+
+  </div>
+  <section className="md:w-1/2 ">
           <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
+            className="hidden h-auto max-w-[400px]  md:block"
+            src={hremoImagedesktop}
+            alt="hreo-image"
           />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
           <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
+            className="h-auto w-full  md:hidden"
+            src={hremoImageMobile}
+            alt="hreo-image"
           />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+        </section>
+
+ </section>
+
+
+
+
+   </div>
+  )
 }
+
+export default page
